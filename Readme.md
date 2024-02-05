@@ -46,12 +46,16 @@ To get started with Broadcasting Emails, follow these steps:
    3. SENDING_MAIL=your_email_address
    4. SENDING_MAIL_PASSWORD=your_password
 2. 
-  ``` cd broadcasting-emails```
+  ``` 
+  cd broadcasting-emails
+  ```
   
 3.  Install the dependencies:
   ``` npm install  ```
 4. Start the server:
-    ```npm start or node server.js```
+    ```  
+    npm start or node server.js
+    ```
 
 5. Access the homepage at `http://localhost:3000`.
 
