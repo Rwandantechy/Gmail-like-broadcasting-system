@@ -41,6 +41,7 @@ To get started with Broadcasting Emails, follow these steps:
 
 1. Configure environment variables:
    Create a `.env` file in the root directory with the following variables:
+   I have used ``MySql DBMS`` but feel to adjust to your  databse of choice.
 
    1. ``PORT=4000`` 
    2. ``MYSQL_HOST=your_mongodb_uri`` 
@@ -55,16 +56,23 @@ To get started with Broadcasting Emails, follow these steps:
    10. ``MYSQL_DATABASE=`db-name``
 
 2. 
-  ``` 
-  cd broadcasting-emails
-  ```
+    ``` 
+    cd broadcasting-emails
+
+    ```
   
 3.  Install the dependencies:
-  ``` npm install  ```
-4. Start the server:
-    ```  
-    npm start or node server.js
+
+    ``` 
+     npm install
+      
     ```
+4. Start the server:
+
+   ```  
+    npm start or node server.js
+
+   ```
 
 5. Access the homepage at `http://localhost:4000`.
 
