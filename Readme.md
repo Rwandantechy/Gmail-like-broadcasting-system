@@ -41,10 +41,17 @@ To get started with Broadcasting Emails, follow these steps:
 
 1. Configure environment variables:
    Create a `.env` file in the root directory with the following variables: 
-   1. PORT=3000 
-   2. MONGODB_URI=your_mongodb_uri 
-   3. SENDING_MAIL=your_email_address
-   4. SENDING_MAIL_PASSWORD=your_password
+   1. ``PORT=4000`` 
+   2. ``MYSQL_HOST=your_mongodb_uri`` 
+   3. ``JWT_EXPIRES_IN= anytime accordingly, eg: 1d``
+   4. ``SENDING_MAIL=your_email_address``
+   5. ``SENDING_MAIL_PASSWORD=your_password``
+   6. ``MYSQL_HOST=localhost``
+   7. ``MYSQL_PORT=3306``
+   8. ``MYSQL_USER=root``
+   9. ``MYSQL_PASSWORD=""``
+   10. ``MYSQL_DATABASE=`db-name``
+
 2. 
   ``` 
   cd broadcasting-emails
