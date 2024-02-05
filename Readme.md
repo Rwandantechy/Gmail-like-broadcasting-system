@@ -57,9 +57,9 @@ To get started with Broadcasting Emails, follow these steps:
     npm start or node server.js
     ```
 
-5. Access the homepage at `http://localhost:3000`.
+5. Access the homepage at `http://localhost:4000`.
 
-6.  you can access other endpoints: `http://localhost:3000/endpoint`
+6.  you can access other endpoints: ```http://localhost:4000/{endpoint}```
 
 ## License
 
