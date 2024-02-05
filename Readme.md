@@ -46,12 +46,12 @@ To get started with Broadcasting Emails, follow these steps:
    3. SENDING_MAIL=your_email_address
    4. SENDING_MAIL_PASSWORD=your_password
 2. 
-   ```bash
+  ```
   cd broadcasting-emails
 
-   ```
+  
 3.  Install the dependencies:
-  ``` bash
+  ``` 
    npm install
   ```
 4. Start the server:
