@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/clock.css" />
+
+    <script
+      src="https://kit.fontawesome.com/56c42c8616.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>Nishkaam:: Dashboard</title>
+    <style>
+         .all-body {
+         overflow: hidden;
+         overflow-y: hidden;
+         }
+         .all-body::-webkit-scrollbar {
+          display: none;
+          }
+
+      .main-content {
+        flex-grow: 1;
+        overflow-y: auto;
+        max-height: calc(100vh - 120px);
+    </style>
+  </head>
+
+  <body
+    class="bg-gradient-to-b from-green-900 via-yellow-100 to-purple-100 min-h-screen"
+  >
+    <main>
+      <header
+        class="fixed top-0 left-0 right-0 z-10 bg-transparent border-white dark:bg-gray-900 flex flex-row items-center justify-between p-3 shadow-inner"
+      >
+        <img src="/images/logo1.png" width="200" alt="logo" />
+        <div
+          class="w-full sm:w-3/5 md:w-2/5 lg:w-3/5 bg-white border border-black rounded-lg"
+        >
+          <form class="flex items-center" action="" method="get">
+            <i class="ml-3 fas fa-search text-gray-600"></i>
+            <input
+              class="p-2 w-full bg-transparent border-none outline-none"
+              type="text"
+              placeholder="Search"
+              name="email-keyword"
+            />
+          </form>
+        </div>
+        <div class="flex flex-row items-center justify-between">
+          <div class="bg-gray-200 pr-3 pl-3 pt-2 pb-2 rounded-full">
+            <i class="fas fa-cog text-gray-600"></i>
+          </div>
+          <div
+            class="flex items-center ml-3 mr-5 bg-gray-100 text-black p-2 rounded-md"
+          >
+            <i class="fas fa-user text-gray-600"></i>
+            <h4 class="ml-1 font-semibold"><%=username %>
+             </h4>
+          </div>
+        </div>
+      </header>
+
+      <section class="all-body flex flex-col md:flex-row pt-40">
+        <aside
+          class="left-menu w-full md:w-1/5 h-4/5 bg-transparent shadow-lg rounded-t"
+        >
+          <button
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 m-3 rounded mb-5"
+          >
+            <i class="fas fa-plus mr-2"></i>
+            <span>Compose Email</span>
+          </button>
+
+          <ul class="flex flex-col">
+            <li class="mb-2">
+              <a
+                href="#"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-home mr-2"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="dashboard"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-paper-plane mr-2"></i>
+                <span>Sent Emails</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="#"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-edit mr-2"></i>
+                <span>Drafts</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="#"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-user mr-2"></i>
+                <span>All Subscribers</span>
+              </a>
+            </li>
+            <!-- scheduled  -->
+            <li class="mb-2">
+              <a
+                href="#"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-clock mr-2"></i>
+                <span>Scheduled</span>
+              </a>
+            </li>
+            <!-- marketing emails -->
+            <li class="mb-2">
+              <a
+                href="#"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-bullhorn mr-2"></i>
+                <span>Marketing Emails</span>
+              </a>
+            </li>
+            <!-- newletter subscribers  -->
+            <li class="mb-2">
+              <a
+                href="#"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-envelope-open-text mr-2"></i>
+                <span>Newsletter Subscribers</span>
+              </a>
+            </li>
+            <!-- internal workers email -->
+            <li class="mb-2">
+              <a
+                href="#"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-users mr-2"></i>
+                <span>Internal Workers</span>
+              </a>
+            </li>
+            <!-- affliated companies -->
+            <li class="mb-2">
+              <a
+                href="#"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-building mr-2"></i>
+                <span>Affliated Companies</span>
+              </a>
+            </li>
+          </ul>
+          <div class="container bg-white shadow-lg p-2 rounded-2xl">
+            <div class="display-date">
+              <span id="day">day</span>,
+              <span id="daynum">00</span>
+              <span id="month">month</span>
+              <span id="year">0000</span>
+            </div>
+            <div class="display-time"></div>
+          </div>
+        </aside>
+
+        <section
+          class="main-content w-full md:w-4/5 p-4 bg-gray-200 m-3 rounded-xl shadow-2xl"
+        >
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+  <script>
+    const displayTime = document.querySelector(".display-time");
+    // Time
+    function showTime() {
+      let time = new Date();
+      displayTime.innerText = time.toLocaleTimeString("en-US", {
+        hour12: false,
+      });
+      setTimeout(showTime, 1000);
+    }
+
+    showTime();
+
+    // Date
+    function updateDate() {
+      let today = new Date();
+
+      // return number
+      let dayName = today.getDay(),
+        dayNum = today.getDate(),
+        month = today.getMonth(),
+        year = today.getFullYear();
+
+      const months = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ];
+      const dayWeek = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      // value -> ID of the html element
+      const IDCollection = ["day", "daynum", "month", "year"];
+      // return value array with number as a index
+      const val = [dayWeek[dayName], dayNum, months[month], year];
+      for (let i = 0; i < IDCollection.length; i++) {
+        document.getElementById(IDCollection[i]).firstChild.nodeValue = val[i];
+      }
+    }
+
+    updateDate();
+  </script>
+</html>

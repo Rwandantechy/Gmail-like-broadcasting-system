@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nishkaam Innovations | Sign Up</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/styles/style.css" />
+  </head>
+
+  <body
+    class="flex items-center justify-center min-h-screen bg-gradient-to-b from-green-200 via-yellow-100 to-purple-200"
+  >
+    <div
+      class="w-full max-w-md px-1 py-2 bg-gradient-to-b from-green-500 via-yellow-100 to-white rounded-lg shadow-md sm:px-6 md:px-8 lg:px-10"
+    >
+      <div class="success-animation">
+        <svg
+          class="checkmark"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 52 52"
+        >
+          <circle
+            class="checkmark__circle"
+            cx="26"
+            cy="26"
+            r="25"
+            fill="none"
+          />
+          <path
+            class="checkmark__check"
+            fill="none"
+            d="M14.1 27.2l7.1 7.2 16.7-16.8"
+          />
+        </svg>
+
+        <h1 class="text-3xl font-bold text-center text-gray-900">
+          You have successfully signed up ! Please check your email for an OTP
+          and then enter it here.
+        </h1>
+        <!-- form for otp verificatipon  -->
+        <form
+          action="/auth/verifyOtp"
+          method="POST"
+          class="mt-4 p-2 text-center bg-gray-3 rounded-md text-xl text-meta"
+        >
+        <input type="email" name="email" id="email" value="<%= email%>">  
+
+            
+          <div id="otp"  class="flex flex-row justify-center text-center px-2 mt-5">
+            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text"  name="first" maxlength="1" /> 
+            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text"  name="second" maxlength="1" /> 
+            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text"  name="third" maxlength="1" /> 
+            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text"  name="fourth" maxlength="1" />
+            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text"  name="fifth" maxlength="1" /> 
+            <input class="m-2 border h-10 w-10 text-center form-control rounded" type="text"  name="sixth" maxlength="1" />
+                      </div>
+          <button
+            type="submit"
+            class="w-full p-2 bg-primary mt-4 rounded-md text-xl text-meta bg-gradient-to-b from-green-200 via-yellow-100 to-purple-200"
+          >
+            Verify OTP
+          </button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+# Node.js
+node_modules/
+npm-debug.log*
+# Logs
+logs
+*.log
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# yarn
+.yarn-integrity
+.yarn-metadata
+.yarn-tarball.tgz
+
+# npm cache directory
+.npm
+
+# eslint cache
+.eslintcache
+
+# dotenv environment variables file
+.env
+
+# VSCode directory
+.vscode/
+
+# MacOS
+.DS_Store
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# IDE files
+*.iml
+.idea/
+.vscode/
+
+# Compiled output
+/dist/
+/build/
+
+# Package lock files
+package-lock.json
+yarn.lock
+
+# Editor specific files
+*.swp
+*.swo
+*.swn
+*.swo
+*.swm
+*.swl
+*.swk
+*.swj
+*.swi
+*.swg
+*.swf
+*.swe
+*.swd
+*.swc
+*.swb
+*.swa
+*.sw9
+*.sw8
+*.sw7
+*.sw6
+*.sw5
+*.sw4
+*.sw3
+*.sw2
+*.sw1
+*.sw0
+*.s.vim
+*.s.un~
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.cache
+*.swp
+*.swo
+*.swn
+*.swo
+*.swm
+*.swl
+*.swk
+*.swj
+*.swi
+*.swg
+*.swf
+*.swe
+*.swd
+*.swc
+*.swb
+*.swa
+*.sw9
+*.sw8
+*.sw7
+*.sw6
+*.sw5
+*.sw4
+*.sw3
+*.sw2
+*.sw1
+*.sw0
+*.s.vim
+*.s.un~
+

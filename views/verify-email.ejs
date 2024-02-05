@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Verification</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    style="
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+      background: linear-gradient(to bottom, #5f9c7698, #f6df5e11, #c5303014);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    "
+  >
+    <div style="width: 100%; padding: 1rem; width: fit-content; margin: 0 auto">
+      <h1
+        style="
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          font-size: 1.5rem;
+          font-weight: 900;
+          text-align: center;
+        "
+      >
+        Email Verification OTP
+      </h1>
+      <p
+        style="
+          font-weight: 600;
+          font-size: large;
+          padding: 1.2rem 0rem;
+          height: fit-content;
+          text-align: center;
+        "
+      >
+        Please use this OTP for verification of your email address
+      </p>
+      <div style="color: red; text-align: center">
+        <strong>This otp will expire in 1 hour </strong>
+        <br /><br />
+      </div>
+
+      <h2
+        style="
+          background-color: white;
+          font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial,
+            sans-serif;
+          padding: 1rem;
+          font-size: 2rem;
+          font-weight: 900;
+          text-align: center;
+        "
+      >
+        <%= otp %>
+      </h2>
+    </div>
+  </body>
+  <footer>
+    <div
+      style="
+        background-color: rgba(128, 128, 128, 0.368);
+        color: black;
+        padding: 20px;
+        text-align: center;
+      "
+    >
+      <h2>Nishkaam Innovations LLP</h2>
+      <p style="margin: 0">
+        First Office-1, Marwadi University centre for Innovation, Incubation and
+        research (MUIIR), Marwadi University, Rajkot, 360003
+      </p>
+
+      <p style="margin: 10px 0 0">
+        you don't know what Nishkaam Innovations LLP is?
+        <a
+          href="nishkaamllp.com"
+          style="color: green; text-decoration: underline"
+          >View in browser</a
+        >
+      </p>
+
+      <p>
+        If you didn't create an account using this email address, please ignore
+        this email or
+        <a
+          href="nishkaamllp.com"
+          style="color: green; text-decoration: underline"
+          >contact support</a
+        >
+        if you have questions.
+      </p>
+    </div>
+  </footer>
+</html>

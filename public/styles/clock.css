@@ -1,0 +1,25 @@
+.display-date {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+.display-time {
+  display: flex;
+  font-size: 3rem;
+  font-weight: bold;
+  border: 2px solid #90DBF4;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: ease-in-out 0.1s;
+   -webkit-box-reflect: below 2px
+linear-gradient(transparent, #8EECF5);
+}
+
+.display-time:hover {
+  background:rgb(8, 173, 140);
+  box-shadow: 0 0 30px #CFBAF0;
+  color: #272727;
+  cursor: pointer;
+}

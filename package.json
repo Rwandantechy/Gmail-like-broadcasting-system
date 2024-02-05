@@ -1,0 +1,60 @@
+{
+  "name": "broadcasting_emails",
+  "version": "1.0.0",
+  "description": "This Nishkaam emailing system is designed for product promotion, specifically tailored for broadcasting product-related messages to a wide audience. The system facilitates effective email marketing campaigns, allowing seamless communication with a targeted customer base.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tailwind:css": "postcss public/styles/tailwind.css -o public/styles/style.css",
+    "start": "nodemon server.js -e js,ejs",
+    "build": "webpack --config webpack.config.js",
+    "sort": "npx prettier --write src"
+  },
+  "author": "Innocent Niyonzima",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "express-validator": "^7.0.1",
+    "fs": "^0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "mysql2": "^3.7.0",
+    "nodemailer": "^6.9.8",
+    "nodemon": "^3.0.2",
+    "postcss": "^8.3.6",
+    "tailwindcss": "^2.2.17",
+    "timezone-support": "^3.1.0",
+    "uuid": "^9.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RwandanTechy/broadcasting-emails.git"
+  },
+  "keywords": [
+    "email",
+    "marketing",
+    "product promotion",
+    "broadcasting",
+    "mail balsting system",
+    "emailing system",
+    "email marketing",
+    "email marketing campaigns",
+    "email marketing system",
+    "email marketing software",
+    "email marketing tools",
+    "email marketing services",
+    "email marketing solutions",
+    "email marketing platform",
+    "email marketing automation",
+    "Nishkaam Innovations LLP"
+  ],
+  "bugs": {
+    "url": "https://github.com/RwandanTechy/broadcasting-emails/issues"
+  },
+  "homepage": "https://github.com/RwandanTechy/broadcasting-emails#readme"
+}
