@@ -1,0 +1,126 @@
+.settings {
+  display: none;
+}
+.show {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 17%;
+  background-color: gray;
+  font-size: 1rem;
+  margin-right: 2rem !important;
+  margin-left: -5rem;
+  margin-top: 1rem;
+  z-index: 1111;
+  height: auto;
+  border-radius: 10px;
+}
+.settings img {
+  cursor: pointer;
+  border-radius: 100%;
+  margin-top: 1rem;
+  width: 4rem;
+  height: 4rem;
+  object-fit: cover;
+  border: 2px solid white;
+}
+
+.fa-pen-photo {
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: -1.4rem;
+  margin-left: 3rem;
+}
+.fa-pen-photo:hover {
+  color: blue;
+}
+.settings span {
+  color: blue;
+  font-size: 1.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 1rem;
+}
+.settings h2 a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.settings h2 a:hover {
+  text-decoration: underline;
+  background-color: rgba(255, 255, 255, 0.158);
+
+  padding: 0rem 1rem;
+}
+.settings .menu-items {
+  color: white;
+  border-radius: 8px;
+  padding: 0.5rem;
+}
+.settings .menu-items .items {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin: 1rem;
+  cursor: pointer;
+  border-radius: 2px;
+}
+.settings .menu-items .items:hover {
+  font-size: 1.3rem;
+  text-decoration: underline;
+}
+.email-list {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+.email {
+  background-color: rgba(0, 0, 0, 0.281);
+  padding:3px;
+  border-radius: 10px;
+  margin-right: 5px;
+  font-size:12px;
+  color: white;
+  margin-bottom: 5px;
+}
+/* Style for the remove symbol */
+.remove-symbol {
+  visibility: hidden;
+  cursor: pointer;
+  color: red;
+  margin-left:3px;
+  font-weight: 900;
+}
+
+
+.email:hover .remove-symbol {
+  visibility: visible;
+}
+.modal-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.modal-controls button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.modal-controls button i {
+  font-size: 1rem; 
+}
+#emailSubject{
+font-family: fantasy;
+font-size: 1rem;
+color: black;
+
+}

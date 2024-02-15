@@ -7,39 +7,60 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="/styles/clock.css" />
+    <link rel="stylesheet" href="/styles/dashboard.css" />
 
     <script
       src="https://kit.fontawesome.com/56c42c8616.js"
       crossorigin="anonymous"
     ></script>
+    <script
+      src="https://cdn.tiny.cloud/1/h68ksxb6z97t3esyfmqior2w8o9fdhqhf6dukewly7zdr4x1/tinymce/6/tinymce.min.js"
+      referrerpolicy="origin"
+    ></script>
     <title>Nishkaam:: Dashboard</title>
     <style>
-         .all-body {
-         overflow: hidden;
-         overflow-y: hidden;
-         }
-         .all-body::-webkit-scrollbar {
-          display: none;
-          }
+      .all-body {
+        overflow: hidden;
+        overflow-y: hidden;
+      
+      }
+      .all-body::-webkit-scrollbar {
+        display: none;
+      }
 
       .main-content {
         flex-grow: 1;
         overflow-y: auto;
         max-height: calc(100vh - 120px);
+      }
+      #composeEmailModal {
+        display: none;
+        position: absolute;
+        max-height: calc(100vh - 30px);
+        top: 60% !important;
+        left: 50%;
+        overflow-y: auto;
+        flex-grow: 2;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
+      }
     </style>
   </head>
-
+  <!-- body start here -->
   <body
     class="bg-gradient-to-b from-green-900 via-yellow-100 to-purple-100 min-h-screen"
   >
+    <!-- main section here -->
     <main>
+      <!-- header start here -->
       <header
         class="fixed top-0 left-0 right-0 z-10 bg-transparent border-white dark:bg-gray-900 flex flex-row items-center justify-between p-3 shadow-inner"
       >
         <img src="/images/logo1.png" width="200" alt="logo" />
         <div
-          class="w-full sm:w-3/5 md:w-2/5 lg:w-3/5 bg-white border border-black rounded-lg"
+          class="w-full sm:w-3/5 md:w-2/5 lg:w-3/5 bg-white border border-black rounded-full"
         >
           <form class="flex items-center" action="" method="get">
             <i class="ml-3 fas fa-search text-gray-600"></i>
@@ -53,22 +74,64 @@
         </div>
         <div class="flex flex-row items-center justify-between">
           <div class="bg-gray-200 pr-3 pl-3 pt-2 pb-2 rounded-full">
-            <i class="fas fa-cog text-gray-600"></i>
+            <i onclick="showSettings()" class="fas fa-cog text-gray-600"> </i>
+            <div class="settings">
+              <img
+                src="/images/passport photo.png"
+                width="90"
+                height="90"
+                alt="user profile image"
+              />
+              <a class="fa-pen-photo" href="changePhoto"
+                ><i class="fas fa-sharp fa-light fa-pen"></i>
+              </a>
+              <span>Hi,<%=username%></span>
+              <h2>
+                <a href="/settings">Manage Your Account </a>
+              </h2>
+              <br />
+              <ul class="menu-items">
+                <li class="items">
+                  <a href="dashboard"><%=username%>@gmail.com</a>
+                </li>
+                <li class="items">
+                  <a href="logout/email">Add new Account</a>
+                </li>
+                <li class="items"><a href="logout">Logout all Accounts</a></li>
+              </ul>
+            </div>
           </div>
           <div
-            class="flex items-center ml-3 mr-5 bg-gray-100 text-black p-2 rounded-md"
+            class="flex items-center ml-3 mr-5 bg-gray-100 text-black p-2 rounded-md user-profile"
           >
-            <i class="fas fa-user text-gray-600"></i>
-            <h4 class="ml-1 font-semibold"><%=username %></h4>
+            <img
+              src="/images/passport photo.png"
+              class="rounded-full"
+              width="16"
+              height="16"
+              alt="user's profile"
+            />
+            <h4 class="ml-1 font-semibold">
+              <%=username %>
+              <i
+                onclick="showSettings()"
+                class="fa-solid fa-caret-down text-blue-900 logut-switch-account"
+              ></i>
+            </h4>
           </div>
         </div>
       </header>
-
-      <section class="all-body flex flex-col md:flex-row pt-40">
+      <!-- header ends here -->
+      <!--  the main content starts here  -->
+      <section class="all-body flex flex-col md:flex-row pt-20">
+        <!-- left menu starts here  -->
         <aside
           class="left-menu w-full md:w-1/5 h-4/5 bg-transparent shadow-lg rounded-t"
         >
+          <!-- Button trigger modal -->
           <button
+            type="button"
+            id="openModalButton"
             class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 m-3 rounded mb-5"
           >
             <i class="fas fa-plus mr-2"></i>
@@ -78,7 +141,7 @@
           <ul class="flex flex-col">
             <li class="mb-2">
               <a
-                href="#"
+                href="dashboard"
                 class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
               >
                 <i class="fas fa-home mr-2"></i>
@@ -96,7 +159,7 @@
             </li>
             <li class="mb-2">
               <a
-                href="#"
+                href="drafts"
                 class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
               >
                 <i class="fas fa-edit mr-2"></i>
@@ -105,7 +168,7 @@
             </li>
             <li class="mb-2">
               <a
-                href="#"
+                href="subscribers"
                 class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
               >
                 <i class="fas fa-user mr-2"></i>
@@ -115,7 +178,7 @@
             <!-- scheduled  -->
             <li class="mb-2">
               <a
-                href="#"
+                href="scheduled"
                 class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
               >
                 <i class="fas fa-clock mr-2"></i>
@@ -135,33 +198,14 @@
             <!-- newletter subscribers  -->
             <li class="mb-2">
               <a
-                href="#"
+                href="newesletter-subscribers"
                 class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
               >
                 <i class="fas fa-envelope-open-text mr-2"></i>
                 <span>Newsletter Subscribers</span>
               </a>
             </li>
-            <!-- internal workers email -->
-            <li class="mb-2">
-              <a
-                href="#"
-                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
-              >
-                <i class="fas fa-users mr-2"></i>
-                <span>Internal Workers</span>
-              </a>
-            </li>
-            <!-- affliated companies -->
-            <li class="mb-2">
-              <a
-                href="#"
-                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
-              >
-                <i class="fas fa-building mr-2"></i>
-                <span>Affliated Companies</span>
-              </a>
-            </li>
+                        
           </ul>
           <div class="container bg-white shadow-lg p-2 rounded-2xl">
             <div class="display-date">
@@ -173,10 +217,187 @@
             <div class="display-time"></div>
           </div>
         </aside>
-
+        <!-- left side menu items ends here -->
+        <!--  the body content of starts here  -->
         <section
-          class="main-content w-full md:w-4/5 p-4 bg-gray-200 m-3 rounded-xl shadow-2xl"
+          class="main-content w-full md:w-4/5 h-full p-4 bg-gray-200 m-3 rounded-xl shadow-2xl"
         >
+          <!-- model start here  -->
+
+          <!-- Modal content -->
+          <div
+            class="bg-gradient-to-b from-green-200 via-yellow-100 to-purple-100 shadow-lg rounded-lg overflow-hidden w-full md:w-2/3 ml-14 h-full p-6"
+            id="composeEmailModal"
+            style="display: none"
+          >
+            <div class="flex justify-between items-center">
+              <h1 class="text-left ">NEW EMAIL</h1>
+              <div class="modal-controls">
+                <button type="button" id="expandModalButton">
+                  <i class="fas fa-expand"></i>
+                </button>
+                <button type="button" class="bg-red-200" id="minimizeModalButton">
+                  <i class="fas fa-window-minimize bg-red-100 text-center"></i>
+                </button>
+                <button type="button" id="closeModalButton">
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+              
+            </div>
+
+            <!-- Recipient, Subject, and Body -->
+            <div>
+              <form action="">
+                <div class= border-b border-gray-300">
+                <input
+                  type="text"
+                  id="emailInput"
+                  name="emailRecipient"
+                  class="w-full bg-form-strokedark  rounded-sm p-1 focus:outline-none focus:border-blue-400 mb-1"
+                  placeholder="To"
+                  
+                />
+                <div id="emailList" class="email-list">
+
+                </div>
+              </div>
+                <!-- Subject -->
+                <input
+                  type="text"
+                  id="emailSubject"
+                  name="emailSubject"
+                  class="w-full bg-transparent border-b border-gray-300 p-3 focus:outline-none focus:border-indigo-500 mb-4"
+                  placeholder="Subject"
+                />
+
+                <!-- Body -->
+                <textarea
+                  id="emailBody"
+                  name="emailBody"
+                  rows="12"
+                  class="w-full bg-gray-100 shadow-sm text-black rounded-sm p-3 border-b border-black focus:outline-none focus:border-indigo-500 text-gray-700 mb-4"
+                  placeholder="Start typing your email here..."
+                ></textarea>
+              </form>
+            </div>
+            <!-- Actions -->
+            <div class="flex justify-center gap-2">
+              <!-- Send button -->
+              <button
+                type="button"
+                class="px-6 mt-4 py-3.5 text-base font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                <svg
+                  class="w-4 h-4 text-white me-2"
+                  aria-hidden="true"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor"
+                  viewBox="0 0 20 16"
+                >
+                  <path
+                    d="m10.036 8.278 9.258-7.79A1.979 1.979 0 0 0 18 0H2A1.987 1.987 0 0 0 .641.541l9.395 7.737Z"
+                  />
+                  <path
+                    d="M11.241 9.817c-.36.275-.801.425-1.255.427-.428 0-.845-.138-1.187-.395L0 2.6V14a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2.5l-8.759 7.317Z"
+                  />
+                </svg>
+                SEND EMAIL
+              </button>
+              <!-- sechedule email button -->
+
+              <button
+                type="button"
+                class="px-3 mt-3 py-3 text-base font-medium text-black inline-flex items-center bg-green-200 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-red-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              >
+                <svg
+                  width="32px"
+                  height="32px"
+                  viewBox="0 0 1024 1024"
+                  class="icon"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="#f2f2f2"
+                  stroke="#f2f2f2"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke="#CCCCCC"
+                    stroke-width="34.816"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <path
+                      d="M897.9 369.2H205c-33.8 0-61.4-27.6-61.4-61.4s27.6-61.4 61.4-61.4h692.9c33.8 0 61.4 27.6 61.4 61.4s-27.6 61.4-61.4 61.4z"
+                      fill="#ebf0eb"
+                    ></path>
+                    <path
+                      d="M807 171H703.3c-16.6 0-30 13.4-30 30s13.4 30 30 30H807c31.6 0 57.4 24 57.4 53.4v42.3H125.2v-42.3c0-29.5 25.7-53.4 57.4-53.4H293c16.6 0 30-13.4 30-30s-13.4-30-30-30H182.5c-64.7 0-117.4 50.9-117.4 113.4v527.7c0 62.5 52.7 113.4 117.4 113.4H807c64.7 0 117.4-50.9 117.4-113.4V284.5c0-62.6-52.7-113.5-117.4-113.5z m0 694.6H182.5c-31.6 0-57.4-24-57.4-53.4V386.8h739.2v425.4c0.1 29.5-25.7 53.4-57.3 53.4z"
+                      fill="#010509"
+                    ></path>
+                    <path
+                      d="M447.6 217.1c-12.4-6.1-27-2.8-35.7 7.1-2.2-6.7-4-16.2-4-28.1 0-13 2.2-23 4.6-29.8 9.5 8.1 23.5 9.6 34.9 2.8 14.2-8.5 18.8-27 10.3-41.2-15.5-25.9-35.9-29.7-46.6-29.7-36.6 0-63.1 41.2-63.1 97.8s26.4 98 63 98c20.6 0 39-13.4 50.4-36.7 7.3-14.9 1.1-32.9-13.8-40.2zM635.9 218.5c-12.4-6.1-27-2.8-35.7 7.1-2.2-6.7-4-16.2-4-28.1 0-13 2.2-23 4.6-29.8 9.5 8.1 23.5 9.6 34.9 2.8 14.2-8.5 18.8-27 10.3-41.2-15.5-25.9-35.9-29.7-46.6-29.7-36.6 0-63.1 41.2-63.1 97.8s26.5 97.8 63.1 97.8c20.6 0 39-13.4 50.4-36.7 7.1-14.7 0.9-32.7-13.9-40z"
+                      fill="#010509"
+                    ></path>
+                    <path
+                      d="M700.2 514.5H200.5c-16.6 0-30 13.4-30 30s13.4 30 30 30h499.7c16.6 0 30-13.4 30-30s-13.5-30-30-30zM668.4 689.8h-74c-16.6 0-30 13.4-30 30s13.4 30 30 30h74c16.6 0 30-13.4 30-30s-13.4-30-30-30zM479.3 689.8H200.5c-16.6 0-30 13.4-30 30s13.4 30 30 30h278.8c16.6 0 30-13.4 30-30s-13.4-30-30-30z"
+                      fill="#e4542f"
+                    ></path>
+                  </g>
+                </svg>
+                Schedule Email
+              </button>
+
+              <!-- cancel email -->
+              <button
+                type="button"
+                class="px-3 mt-3 py-3 text-base font-medium text-white inline-flex items-center bg-gray-400 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-red-700 dark:focus:ring-red-500"
+              >
+                <svg
+                  version="1.1"
+                  id="Layer_1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                  width="32px"
+                  height="32px"
+                  viewBox="0 0 128 128"
+                  enable-background="new 0 0 128 128"
+                  xml:space="preserve"
+                  fill="#000000"
+                >
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g
+                    id="SVGRepo_tracerCarrier"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  ></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <g>
+                      <g>
+                        <path
+                          fill="#011119"
+                          d="M64,0C28.656,0,0,28.656,0,64s28.656,64,64,64s64-28.656,64-64S99.344,0,64,0z M64,120 C33.125,120,8,94.875,8,64S33.125,8,64,8s56,25.125,56,56S94.875,120,64,120z"
+                        ></path>
+                      </g>
+                    </g>
+                    <g>
+                      <g>
+                        <path
+                          fill="#F44336"
+                          d="M75.313,64l16.969-16.969c3.125-3.125,3.125-8.195,0-11.313c-3.117-3.125-8.188-3.125-11.313,0L64,52.688 L47.031,35.719c-3.125-3.125-8.195-3.125-11.313,0c-3.125,3.117-3.125,8.188,0,11.313L52.688,64L35.719,80.969 c-3.125,3.125-3.125,8.195,0,11.313c3.117,3.125,8.188,3.125,11.313,0L64,75.313l16.969,16.969c3.125,3.125,8.195,3.125,11.313,0 c3.125-3.117,3.125-8.188,0-11.313L75.313,64z"
+                        ></path>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+                Cancel Email
+              </button>
+            </div>
+          </div>
+
+          <!-- Modals end here  -->
           <div
             class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
           >
@@ -530,9 +751,38 @@
             </div>
           </div>
         </section>
+        <!--the  body content ends here -->
       </section>
+      <!-- main content ends here  -->
     </main>
+    <!--main section ends here   -->
   </body>
+  <!-- body ends here  -->
+
+  <!-- Modals start here  -->
+
+  <!-- scripts here  -->
+  <!-- Actions -->
+
+  <script>
+    tinymce.init({
+      selector: "textarea",
+      plugins:
+        "ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss",
+      toolbar:
+        "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
+      tinycomments_mode: "embedded",
+      tinycomments_author: "Author name",
+      mergetags_list: [
+        { value: "First.Name", title: "First Name" },
+        { value: "Email", title: "Email" },
+      ],
+      ai_request: (request, respondWith) =>
+        respondWith.string(() =>
+          Promise.reject("See docs to implement AI Assistant")
+        ),
+    });
+  </script>
   <script>
     const displayTime = document.querySelector(".display-time");
     // Time
@@ -589,5 +839,84 @@
     }
 
     updateDate();
+    function showSettings() {
+      const setting = document.querySelector(".settings");
+      setting.classList.toggle("show");
+    }
+    // JavaScript to toggle modal visibility
+    document
+      .getElementById("openModalButton")
+      .addEventListener("click", function () {
+        var modal = document.getElementById("composeEmailModal");
+        modal.style.display =
+          modal.style.display === "none" || modal.style.display === ""
+            ? "block"
+            : "none";
+      });
+
+    // Optional: Add a close button functionality
+    document
+      .getElementById("closeModalButton")
+      .addEventListener("click", function () {
+        document.getElementById("composeEmailModal").style.display = "none";
+      });
+      const emailInput = document.getElementById('emailInput');
+const emailList = document.getElementById('emailList');
+
+// Event listener for adding email addresses
+emailInput.addEventListener('keydown', handleKeyDown);
+
+function handleKeyDown(event) {
+  const key = event.key;
+  const inputValue = emailInput.value.trim();
+
+  // Check if the key pressed is comma or Enter
+  if (key === ',' || key === 'Enter') {
+    // Prevent default behavior
+    event.preventDefault();
+    
+    // Split the input value into individual email addresses if it contains commas
+    const emails = inputValue.split(',').map(email => email.trim());
+    
+    // Add each email address to the list
+    emails.forEach(email => addEmailToList(email));
+
+    // Clear the input field
+    emailInput.value = '';
+  }
+}
+
+// Function to add email address to the list
+function addEmailToList(email) {
+  // If the email address is not empty
+  if (email !== '') {
+    // Create a new email element
+    const emailElement = document.createElement('span');
+    emailElement.textContent = email;
+    emailElement.classList.add('email');
+
+    // Create a remove symbol element
+    const removeSymbol = document.createElement('span');
+    removeSymbol.textContent = '✕';
+    removeSymbol.classList.add('remove-symbol');
+
+    // Append the remove symbol to the email element
+    emailElement.appendChild(removeSymbol);
+
+    // Append the email element to the email list
+    emailList.appendChild(emailElement);
+
+    // Add event listener to remove the email element
+    removeSymbol.addEventListener('click', () => {
+      emailList.removeChild(emailElement);
+    });
+  }
+}
+
+
+
+
   </script>
+  <!-- the scripts ends here  -->
 </html>
+<!-- end of the page  -->
