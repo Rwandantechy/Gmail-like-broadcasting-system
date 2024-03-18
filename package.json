@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tailwind:css": "postcss public/styles/tailwind.css -o public/styles/style.css",
-    "start": "nodemon server.js -e js,ejs",
+    "start": "node server.js -e js,ejs",
     "build": "webpack --config webpack.config.js",
     "sort": "npx prettier --write src"
   },
@@ -39,7 +39,8 @@
     "postcss": "^8.3.6",
     "tailwindcss": "^2.2.17",
     "timezone-support": "^3.1.0",
-    "uuid": "^9.0.1"
+    "uuid": "^9.0.1",
+    "wysiwyg": "^2.0.0"
   },
   "repository": {
     "type": "git",

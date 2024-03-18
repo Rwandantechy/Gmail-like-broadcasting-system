@@ -60,6 +60,8 @@ app.get("/logout", (req, res) => {
   res.redirect("/login");
 });
 
-
-
+// error handler for 404
+app.use((req, res) => {
+  res.status(404).render("404");
+});
 module.exports = app;

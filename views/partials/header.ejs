@@ -1,0 +1,66 @@
+   <!-- header start here -->
+   <header
+   class="fixed top-0 left-0 right-0 z-10 bg-transparent border-white dark:bg-gray-900 flex flex-row items-center justify-between p-3 shadow-inner"
+ >
+   <img src="/images/logo1.png" width="200" alt="logo" />
+   <div
+     class="w-full sm:w-3/5 md:w-2/5 lg:w-3/5 bg-white border border-black rounded-full"
+   >
+     <form class="flex items-center" action="" method="get">
+       <i class="ml-3 fas fa-search text-gray-600"></i>
+       <input
+         class="p-2 w-full bg-transparent border-none outline-none"
+         type="text"
+         placeholder="Search"
+         name="email-keyword"
+       />
+     </form>
+   </div>
+   <div class="flex flex-row items-center justify-between">
+     <div class="bg-gray-200 pr-3 pl-3 pt-2 pb-2 rounded-full">
+       <i onclick="showSettings()" class="fas fa-cog text-gray-600"> </i>
+       <div class="settings">
+         <img
+           src="/images/passport photo.png"
+           width="90"
+           height="90"
+           alt="user profile image"
+         />
+         <a class="fa-pen-photo" href="changePhoto"
+           ><i class="fas fa-sharp fa-light fa-pen"></i>
+         </a>
+         <span>Hi,<%=username%></span>
+         <h2>
+           <a href="/settings">Manage Your Account </a>
+         </h2>
+         <br />
+         <ul class="menu-items">
+           <li class="items">
+             <a href="dashboard"><%=username%>niyo100@gmail.com</a>
+           </li>
+          
+           <li class="items"><a href="/auth/logout">Logout all Accounts</a></li>
+         </ul>
+       </div>
+     </div>
+     <div
+       class="flex items-center ml-3 mr-5 bg-gray-100 text-black p-2 rounded-md user-profile"
+     >
+       <img
+         src="/images/passport photo.png"
+         class="rounded-full"
+         width="16"
+         height="16"
+         alt="user's profile"
+       />
+       <h4 class="ml-1 font-semibold">
+         <%=username %>
+         <i
+           onclick="showSettings()"
+           class="fa-solid fa-caret-down text-blue-900 logut-switch-account"
+         ></i>
+       </h4>
+     </div>
+   </div>
+ </header>
+ <!-- header ends here -->
