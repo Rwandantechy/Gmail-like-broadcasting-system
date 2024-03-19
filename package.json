@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "tailwind:css": "postcss public/styles/tailwind.css -o public/styles/style.css",
-    "start": "node server.js -e js,ejs",   
+    "start": "node server.js -e js,ejs",
+    "dev": "nodemon server.js -e js,ejs"	,   
     "sort": "npx prettier --write src"
   },
   "author": "Innocent Niyonzima",

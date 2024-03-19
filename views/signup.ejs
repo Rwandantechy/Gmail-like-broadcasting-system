@@ -20,9 +20,9 @@
         Sign Up for an Account
       </div>
 
-      <div id="critical-error" class="text-red-500 text-sm mt-1"></div>
+      <%- include('./partials/errorPart.ejs') %>
 
-      <form action="auth/signup" method="post" class="flex flex-col gap-4">
+      <form action="auth/signup" method="POST" class="flex flex-col gap-4">
         <!-- Email Address -->
         <div>
           <label

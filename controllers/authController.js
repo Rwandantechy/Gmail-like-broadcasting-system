@@ -31,7 +31,7 @@ exports.signup = async (req, res) => {
     // check if all fields are filled otherwise redirect to the signup page\
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.redirect("/signup?error=All fields are required");
+      return res.send("/errorPart?error=All fields are required");
     }
     var { username, email, password, cpassword, firstname, lastname } =
       req.body;
