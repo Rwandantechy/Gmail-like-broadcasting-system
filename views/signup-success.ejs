@@ -41,14 +41,19 @@
         <h1 class="text-2xl font-bold text-center text-gray-900">
           You have successfully signed up !
         </h1>
-        <h2>we have sent the opt to this <%= email%></h2>
+        <h2 class="text-xl font-bold text-center text-gray-900">we have sent the opt to this <%= email%></h2>
         <!-- form for otp verificatipon  -->
         <form
           action="/auth/verifyOtp"
           method="POST"
           class="mt-4 p-2 text-center bg-gray-3 rounded-md text-xl text-meta"
         >
-          <input type="email" name="email" id="email" value="<%= email%>" />
+         <!-- hidden email input -->
+          <input
+            type="hidden"
+            name="email"
+            value="<%= email%>"
+          />
 
           <div
             id="otp"
