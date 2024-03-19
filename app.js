@@ -12,7 +12,8 @@ const emailRoutes = require("./routes/emailRoutes");
 const adminRoutes = require("./routes/adminRoutes");
 const { error } = require("console");
 db.connectDatabase();
-app.use(morgan("dev"));
+
+app.use(morgan('common'));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(cookieParser());
