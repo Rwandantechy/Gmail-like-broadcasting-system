@@ -9,6 +9,7 @@ router.get('/dashboard', checkAuth, async (req, res) => {
       const username = req.userData.input.username;      
   
       // Render the dashboard with the username
+    
       res.render('dashboard', { username });
     } catch (error) {
       // If an error occurs, redirect the user to the login page

@@ -7,15 +7,12 @@
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="/styles/clock.css" />
-    <link rel="stylesheet" href="/styles/dashboard.css" />
 
     <script
       src="https://kit.fontawesome.com/56c42c8616.js"
       crossorigin="anonymous"
     ></script>
-    <script src="/js/tinymce.min.js" referrerpolicy="origin"></script>
     <title>Nishkaam:: Dashboard</title>
     <style>
       .all-body {
@@ -31,41 +28,226 @@
         overflow-y: auto;
         max-height: calc(100vh - 120px);
       }
-      #composeEmailModal {
-        display: none;
-        position: absolute;
-        max-height: calc(100vh - 30px);
-        top: 60% !important;
-        left: 50%;
-        overflow-y: auto;
-        flex-grow: 2;
-        transform: translate(-50%, -50%);
-        z-index: 1000;
-      }
     </style>
   </head>
-  <!-- body start here -->
+
   <body
     class="bg-gradient-to-b from-green-900 via-yellow-100 to-purple-100 min-h-screen"
   >
-    <!-- main section here -->
     <main>
-      <%- include('./partials/header.ejs') %>
-      <!--  the main content starts here  -->
-      <section class="all-body flex flex-col md:flex-row pt-20">
-        <%- include('./partials/menu.ejs') %>
-        <!--  the body content of starts here  -->
-        <section
-          class="main-content w-full md:w-4/5 h-full p-4 bg-gray-200 m-3 rounded-xl shadow-2xl"
+        
+      <section class="all-body flex flex-col  md:flex-row pt-10">
+        <aside
+          class="left-menu w-full md:w-1/5 h-4/5 bg-transparent shadow-lg rounded-t"
         >
-          <%- include('./partials/compose.ejs') %>
-          
+          <button
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 m-3 rounded mb-5"
+          >
+            <i class="fas fa-plus mr-2"></i>
+            <span>Compose Email</span>
+          </button>
+
+          <ul class="flex flex-col">
+            <li class="mb-2">
+              <a
+                href="/user/dashboard"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-home mr-2"></i>
+                <span>Home</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="/user/dashboard"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-paper-plane mr-2"></i>
+                <span>Sent Emails</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="/user/dashboard"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-edit mr-2"></i>
+                <span>Drafts</span>
+              </a>
+            </li>
+            <li class="mb-2">
+              <a
+                href="/user/dashboard"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-user mr-2"></i>
+                <span>All Subscribers</span>
+              </a>
+            </li>
+            <!-- scheduled  -->
+            <li class="mb-2">
+              <a
+                href="/user/dashboard"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-clock mr-2"></i>
+                <span>Scheduled</span>
+              </a>
+            </li>
+            <!-- marketing emails -->
+            <li class="mb-2">
+              <a
+                href="/user/dashboard"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-bullhorn mr-2"></i>
+                <span>Marketing Emails</span>
+              </a>
+            </li>
+            <!-- newletter subscribers  -->
+            <li class="mb-2">
+              <a
+                href=""
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-envelope-open-text mr-2"></i>
+                <span>Newsletter Subscribers</span>
+              </a>
+            </li>
+            <!-- internal workers email -->
+            <li class="mb-2">
+              <a
+                href="#"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-users mr-2"></i>
+                <span>Internal Workers</span>
+              </a>
+            </li>
+            <!-- affliated companies -->
+            <li class="mb-2">
+              <a
+                href="#"
+                class="hover:bg-gray-500 rounded-r-full text-black font-semibold py-2 px-4 rounded inline-flex items-center"
+              >
+                <i class="fas fa-building mr-2"></i>
+                <span>Affliated Companies</span>
+              </a>
+            </li>
+          </ul>
+          <div class="container bg-white shadow-lg p-2 rounded-2xl">
+            <div class="display-date">
+              <span id="day">day</span>,
+              <span id="daynum">00</span>
+              <span id="month">month</span>
+              <span id="year">0000</span>
+            </div>
+            <div class="display-time"></div>
+          </div>
+         
+        </aside>
+        
+        <section
+          class="main-content w-full md:w-4/5 p-4 bg-gray-200 m-3 rounded-xl shadow-2xl"
+        >
+        
           <div
             class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
           >
-          <!-- if the message is there display it else display " " -->
+          <div>
+            <!-- email sent successfully message -->
+            <div class="bg-green-500  z-99999 top-0  text-white p-4 text-center">
+              <h1 class="text-3xl">Email Sent Successfully</h1>
+            </div>
+        </div>
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
 
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
 
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
+            <div class="flex items-center justify-between">
+              <div class="flex items-center">
+                <input type="checkbox" class="mr-2" />
+                <span class="font-semibold">Nishkaam Innovations</span>
+                <p class="text-sm text-gray-600 ml-2">
+                  You have been selected for an interview at Nishkaam
+                  Innovations.
+                </p>
+              </div>
+
+              <div class="flex items-center">
+                <span class="text-sm text-gray-500 mr-2"
+                  >11:30 AM, Tue, Jan 25, 2024</span
+                >
+
+                <i class="fas fa-ellipsis-v text-gray-500"></i>
+              </div>
+            </div>
+          </div>
+          <div
+            class="flex flex-col bg-white p-2 rounded-lg hover:bg-gray-300 transition duration-300 ease-in-out mb-2"
+          >
             <div class="flex items-center justify-between">
               <div class="flex items-center">
                 <input type="checkbox" class="mr-2" />
@@ -328,38 +510,9 @@
             </div>
           </div>
         </section>
-        <!--the  body content ends here -->
       </section>
-      <!-- main content ends here  -->
     </main>
-    <!--main section ends here   -->
   </body>
-  <!-- body ends here  -->
-
-  <!-- Modals start here  -->
-
-  <!-- scripts here  -->
-  <!-- Actions -->
-
-  <script>
-    tinymce.init({
-      selector: "textarea",
-      plugins:
-        "ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss",
-      toolbar:
-        "undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat",
-      tinycomments_mode: "embedded",
-      tinycomments_author: "Author name",
-      mergetags_list: [
-        { value: "First.Name", title: "First Name" },
-        { value: "Email", title: "Email" },
-      ],
-      ai_request: (request, respondWith) =>
-        respondWith.string(() =>
-          Promise.reject("See docs to implement AI Assistant")
-        ),
-    });
-  </script>
   <script>
     const displayTime = document.querySelector(".display-time");
     // Time
@@ -416,128 +569,5 @@
     }
 
     updateDate();
-    function showSettings() {
-      const setting = document.querySelector(".settings");
-      setting.classList.toggle("show");
-    }
-    // JavaScript to toggle modal visibility
-    document
-      .getElementById("openModalButton")
-      .addEventListener("click", function () {
-        var modal = document.getElementById("composeEmailModal");
-        modal.style.display =
-          modal.style.display === "none" || modal.style.display === ""
-            ? "block"
-            : "none";
-      });
-
-    // Optional: Add a close button functionality
-    document
-      .getElementById("closeModalButton")
-      .addEventListener("click", function () {
-        document.getElementById("composeEmailModal").style.display = "none";
-      });
-    const emailInput = document.getElementById("emailInput");
-    const emailList = document.getElementById("emailList");
-
-    // Event listener for adding email addresses
-    emailInput.addEventListener("keydown", handleKeyDown);
-
-    function handleKeyDown(event) {
-      const key = event.key;
-      const inputValue = emailInput.value.trim();
-
-      // Check if the key pressed is comma or Enter
-      if (key === "," || key === "Enter") {
-        // Prevent default behavior
-        event.preventDefault();
-
-        // Split the input value into individual email addresses if it contains commas
-        const emails = inputValue.split(",").map((email) => email.trim());
-
-        // Add each email address to the list
-        emails.forEach((email) => addEmailToList(email));
-
-        // Clear the input field
-        emailInput.value = "";
-      }
-    }
-
-    // Function to add email address to the list
-    function addEmailToList(email) {
-      // If the email address is not empty
-      if (email !== "") {
-        // Create a new email element
-        const emailElement = document.createElement("span");
-        emailElement.textContent = email;
-        emailElement.classList.add("email");
-
-        // Create a remove symbol element
-        const removeSymbol = document.createElement("span");
-        removeSymbol.textContent = "✕";
-        removeSymbol.classList.add("remove-symbol");
-
-        // Append the remove symbol to the email element
-        emailElement.appendChild(removeSymbol);
-
-        // Append the email element to the email list
-        emailList.appendChild(emailElement);
-
-        // Add event listener to remove the email element
-        removeSymbol.addEventListener("click", () => {
-          emailList.removeChild(emailElement);
-        });
-      }
-    }
-
-    // Function to gather all entered email addresses, subject, and content
-    function gatherEmailData() {
-      // Get the subject from the textarea
-      const subject = document.getElementById("emailSubject").value;
-
-      // Get the content from the TinyMCE editor if it's active
-      let content = "";
-      if (tinymce.activeEditor) {
-        content = tinymce.activeEditor.getContent();
-      }
-      // Get all the email spans within the emailList container
-      const emailSpans = document.querySelectorAll("#emailList .email");
-
-      console.log("Number of email spans:", emailSpans.length);
-
-      // Create an array to store the email addresses
-      const emailAddresses = [];
-
-      // Iterate through each email span and extract the email address
-      emailSpans.forEach((emailSpan) => {
-        console.log("Email span textContent:", emailSpan.textContent);
-        const emailAddress = emailSpan.textContent.trim();
-        emailAddresses.push(emailAddress);
-      });
-
-      console.log("Email addresses:", emailAddresses);
-
-      // Return an object containing the subject, content, and email addresses
-      return {
-        subject: subject,
-        content: content,
-        emailAddresses: emailAddresses,
-      };
-    }
-
-    function FireForm() {
-      const formData = gatherEmailData();
-      // Remove trailing 'x' from each email address
-      const cleanedEmailAddresses = formData.emailAddresses.map((email) =>
-        email.replace(/✕$/, "")
-      );
-      // Convert the cleaned email addresses array to a string
-      const emailString = cleanedEmailAddresses.join(", ");
-      // Set the value of the input field
-      console.log(emailString);
-      document.querySelector("#Allemails").value = JSON.stringify(emailString);
-    }
   </script>
-  <!-- the scripts ends here  -->
 </html>
-<!-- end of the page  -->

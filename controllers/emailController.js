@@ -44,8 +44,8 @@ exports.sendEmail = (req, res) => {
       });
     });
 
-    // Send a single response after all emails are sent
-    res.send("Emails sent successfully!");
+  
+    res.render("success",);
   } else {
     res
       .status(400)
